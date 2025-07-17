@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Antenna Direzionale - Studio sul Segnale</title>
+        <link rel="stylesheet" href="style/style.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+            rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="logo">Antenna<span>Direzionale</span></div>
+            <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+                <span>☰</span>
+            </button>
+            <nav id="nav">
+                <a href="#intro" style="--i: 0">Introduzione</a>
+                <a href="#teoria" style="--i: 1">Teoria</a>
+                <a href="#grafico" style="--i: 2">Grafico</a>
+                <a href="#esempio" style="--i: 3">Esempio</a>
+                <a href="#quiz" style="--i: 4">Quiz</a>
+                <a href="#applicazioni" style="--i: 5">Applicazioni</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="intro">
+                <h1>Variazione del Livello di Segnale</h1>
+                <p>Comprendi come la direzionalità influisce sulla propagazione del segnale radio.</p>
+            </section>
+
+            <section id="teoria">
+                <h2>Teoria Matematica</h2>
+                <p>Il guadagno di un'antenna direzionale segue la formula:</p>
+                <p>
+                    <strong>G(θ) = G<sub>max</sub>
+                        × cos<sup>n</sup>(θ)</strong>
+                </p>
+                <ul>
+                    <li>
+                        <strong>G<sub>max</sub>
+                        </strong>: Guadagno massimo nella direzione principale</li>
+                    <li>
+                        <strong>n</strong>: Parametro di direttività (più è alto, più il fascio è stretto)</li>
+                    <li>
+                        <strong>θ</strong>: Angolo rispetto alla direzione ottimale</li>
+                </ul>
+            </section>
+
+            <section id="grafico">
+                <h2>Grafico Interattivo</h2>
+                <p>Modifica la direttività per vedere come cambia il diagramma di radiazione:</p>
+                <div class="controls">
+                    <label for="beamwidthSlider">Direttività (n):</label>
+                    <input type="range" id="beamwidthSlider" min="1" max="20" value="6">
+                    <span id="beamwidthValue">6</span>
+                </div>
+                <div class="svg-container">
+                    <svg id="grafico-svg" viewbox="0 0 300 300">
+                        <line
+                            x1="0"
+                            y1="150"
+                            x2="300"
+                            y2="150"
+                            stroke="#666"
+                            stroke-width="1"
+                            class="base-element"/>
+                        <line
+                            x1="150"
+                            y1="0"
+                            x2="150"
+                            y2="300"
+                            stroke="#666"
+                            stroke-width="1"
+                            class="base-element"/>
+                        <circle
+                            cx="150"
+                            cy="150"
+                            r="50"
+                            fill="none"
+                            stroke="#444"
+                            stroke-dasharray="5,5"
+                            class="base-element"/>
+                        <circle
+                            cx="150"
+                            cy="150"
+                            r="100"
+                            fill="none"
+                            stroke="#444"
+                            stroke-dasharray="5,5"
+                            class="base-element"/>
+                    </svg>
+                </div>
+            </section>
+
+            <section id="esempio">
+                <h2>Esempio Pratico</h2>
+                <p>In un collegamento Wi-Fi tra due edifici distanti 200m:</p>
+                <ul>
+                    <li>Allineamento perfetto: -40 dBm (ottimo segnale)</li>
+                    <li>Rotazione di 15°: -70 dBm (connessione instabile)</li>
+                    <li>Rotazione di 30°: -90 dBm (nessuna connessione)</li>
+                </ul>
+            </section>
+
+            <section id="quiz">
+                <h2>Quiz Interattivo</h2>
+                <div class="quiz-container">
+                    <div id="quiz-question" class="quiz-question"></div>
+                    <div id="quiz-options" class="quiz-options"></div>
+                    <div class="quiz-controls">
+                        <button id="quiz-prev" class="quiz-button" disabled="disabled">Indietro</button>
+                        <span id="quiz-progress" class="quiz-progress">1/5</span>
+                        <button id="quiz-next" class="quiz-button">Avanti</button>
+                    </div>
+                    <div id="quiz-result" class="quiz-result"></div>
+                </div>
+            </section>
+
+            <section id="applicazioni">
+                <h2>Applicazioni</h2>
+                <div class="applications-grid">
+                    <div class="app-card">
+                        <h3>📡 Ponti Radio</h3>
+                        <p>Collegamenti punto-punto a lunga distanza</p>
+                    </div>
+                    <div class="app-card">
+                        <h3>🛰️ Satelliti</h3>
+                        <p>Comunicazioni terra-spazio</p>
+                    </div>
+                    <div class="app-card">
+                        <h3>📶 5G</h3>
+                        <p>Beamforming dinamico</p>
+                    </div>
+                    <div class="app-card">
+                        <h3>🎯 Radar</h3>
+                        <p>Localizzazione precisa</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Studio sulle Antenne Direzionali</p>
+        </footer>
+
+        <script src="script/script.js"></script>
+        <script src="script/grafico.js"></script>
+        <script src="script/quiz.js"></script>
+    </body>
+</html>
